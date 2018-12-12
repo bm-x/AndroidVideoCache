@@ -15,7 +15,7 @@ public class SingleVideoActivity extends FragmentActivity {
         if (state == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.containerView, VideoFragment.build(Video.ORANGE_1.url))
+                    .add(R.id.containerView, VideoFragment.build("http://192.168.1.204/video/file/201812/442a2dc932b8a4a26ca12b73e796507b_bak.mp4"))
                     .commit();
         }
     }

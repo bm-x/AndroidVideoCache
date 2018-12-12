@@ -20,7 +20,6 @@ android {
 dependencies {
     implementation project(':library')
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'org.androidannotations:androidannotations-api:3.3.2'
 //    implementation 'com.danikula:videocache:2.7.1'
     implementation 'com.viewpagerindicator:library:2.4.2-SNAPSHOT@aar'
 
