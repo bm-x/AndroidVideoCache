@@ -2,6 +2,7 @@ package com.danikula.videocache;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 
 import com.danikula.videocache.file.DiskUsage;
 import com.danikula.videocache.file.FileNameGenerator;
@@ -243,6 +244,7 @@ public class HttpProxyCacheServer {
             onError(new ProxyCacheException("Error processing request", e));
         } finally {
             releaseSocket(socket);
+            Log.i("clyde", "releaseSocket: " + Thread.currentThread());
             LOG.debug("Opened connections: " + getClientsCount());
         }
     }

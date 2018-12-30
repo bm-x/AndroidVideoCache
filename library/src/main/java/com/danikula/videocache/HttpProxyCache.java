@@ -43,10 +43,8 @@ class HttpProxyCache extends ProxyCache {
 
         long offset = request.rangeOffset;
         if (isUseCache(request)) {
-            Log.i("clyde", "use cache --- " + offset);
             responseWithCache(out, offset);
         } else {
-            Log.i("clyde", "use without cache --- " + offset);
             responseWithoutCache(out, offset);
         }
     }
@@ -79,10 +77,12 @@ class HttpProxyCache extends ProxyCache {
     private void responseWithCache(OutputStream out, long offset) throws ProxyCacheException, IOException {
         byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
         int readBytes;
+        Log.i("clyde", "responseWithCache: offset:  "+ offset + "   thread " + Thread.currentThread());
         while ((readBytes = read(buffer, offset, buffer.length)) != -1) {
             out.write(buffer, 0, readBytes);
             offset += readBytes;
         }
+        Log.e("clyde", "end --- responseWithCache: offset:  "+ offset + "   thread " + Thread.currentThread());
         out.flush();
     }
 
